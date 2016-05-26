@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.bukkit.OfflinePlayer;
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 
 import me.dasfaust.gm.Core;
 import me.dasfaust.gm.StorageHelper;
@@ -104,6 +107,9 @@ public class ListingsHelper
 			{
 				Core.instance.storage().removeObject(MarketListing.class, listing.id);
 			}
+			Player viewer1 = player.getPlayer();
+                        viewer1.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "FsN" + ChatColor.GOLD + "-" + ChatColor.DARK_AQUA + "Shop" + ChatColor.GOLD + "]" + ChatColor.WHITE + " Look in your stock area to find your purchase!");
+                        viewer1.playSound(viewer1.getLocation(), Sound.valueOf("ANVIL_LAND"), 1.0F, 1.0F);
 		}
 		else
 		{
@@ -171,6 +177,9 @@ public class ListingsHelper
 			{
 				StorageHelper.updateStockAmount(buyerStock, buyerStock.amount + listing.amount);
 			}
+			Player onlinePlayer1 = player.getPlayer();
+                    	onlinePlayer1.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "FsN" + ChatColor.GOLD + "-" + ChatColor.DARK_AQUA + "Shop" + ChatColor.GOLD + "]" + ChatColor.WHITE + " Look in your stock area to find your purchase!");
+                    	onlinePlayer1.playSound(onlinePlayer1.getLocation(), Sound.valueOf("ANVIL_LAND"), 1.0F, 1.0F);
 		}
 	}
 
